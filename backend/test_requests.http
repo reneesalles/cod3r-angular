@@ -1,0 +1,40 @@
+@baseUrl = http://localhost:3004
+
+GET {{baseUrl}}/products HTTP/1.1
+
+###
+
+GET {{baseUrl}}/products/2 HTTP/1.1
+
+###
+
+POST {{baseUrl}}/products HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Geladeira",
+    "price": 1913.99
+}
+
+###
+
+PUT {{baseUrl}}/products/4 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Freezer",
+    "price": 1533.15
+}
+
+###
+
+PATCH {{baseUrl}}/products/4 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Geladeira"
+}
+
+###
+
+DELETE {{baseUrl}}/products/4 HTTP/1.1
