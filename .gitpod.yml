@@ -8,20 +8,22 @@ ports:
   - port: 8000
     onOpen: ignore
   - port: 4200
-    onOpen: open-preview
+    onOpen: open-browser
   - port: 3004
     onOpen: ignore
 
 # List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - before: export NG_CLI_ANALYTICS=ci
+  - name: json-server
+    before: export NG_CLI_ANALYTICS=ci
     init: npm install
     command: >
       cd ./backend &&
       npm i -g json-server &&
       npm i json-server &&
       json-server --watch db.json --port 3004
-  - command: >
+  - name: angular
+    command: >
       npm i -g jshint &&
       npm i -g tslint &&
       echo n | npm i -g @angular/cli &&
